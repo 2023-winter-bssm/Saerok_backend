@@ -13,11 +13,14 @@ public class Member {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false)
+    @Column(nullable = false, unique = true)
     private String userName;
 
     @Column(nullable = false)
     private String password;
+
+    @Column(nullable = false)
+    private String nickname;
 
     @Column(nullable = false)
     private int grade;
@@ -28,17 +31,17 @@ public class Member {
     @Column(nullable = false)
     private int studentNo;
 
-    @Column(nullable = false)
-    private String nickname;
-
     @Builder
-
-    public Member(String userName, String password, int grade, int classNo, int studentNo, String nickname) {
+    public Member(String userName, String password, String nickname, int grade, int classNo, int studentNo) {
         this.userName = userName;
         this.password = password;
+        this.nickname = nickname;
         this.grade = grade;
         this.classNo = classNo;
         this.studentNo = studentNo;
-        this.nickname = nickname;
+    }
+
+    public Long getId() {
+        return id;
     }
 }

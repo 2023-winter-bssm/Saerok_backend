@@ -18,14 +18,9 @@ public class Post extends BaseTimeEntity {
 
     private String hashtag;
 
-    @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "image_file_id")
-    private AttachFile imageFile;
-
     @Builder
-    public Post(String title, String hashtag, AttachFile imageFile) {
+    public Post(String title, String hashtag) {
         this.title = title;
         this.hashtag = hashtag;
-        this.imageFile = imageFile;
     }
 }
